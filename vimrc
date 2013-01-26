@@ -109,12 +109,18 @@ inoremap <A-k> <Esc>:m-2<CR>
 vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
+noremap <C-n> :NERDTreeToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable hidden buffers
+set hidden
+
+set switchbuf=useopen
 
 " Handle \ in Windows file names correctly
 set shellslash
@@ -141,13 +147,13 @@ au InsertLeave * set nopaste
 " Make /g default in substitute
 set gdefault
 
-cnoreabbrev N NERDTree
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+cnoreabbrev N NERDTree
 
 " Make VIM CWD follow NerdTree:
 let g:NERDTreeChDirMode = 2 
@@ -159,7 +165,20 @@ let g:NERDTreeDirArrows = 0
 cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
 cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
 " Show NERDTree on startup
-autocmd VimEnter * NERDTree
+autocmd VimEnter * if !argc() | NERDTree | endif
 
+noremap <S-Tab> :bnext<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mini Buffer Explorer 
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:miniBufExplMapCTabSwitchBufs = 1
+
+" Fix bug that causes syntax hilighting to disappear
+" This appears to be fixed by :set hidden
+"let g:miniBufExplForceSyntaxEnable = 1
 
 

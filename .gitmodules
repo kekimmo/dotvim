@@ -16,3 +16,6 @@
 [submodule "submodules/colour-sampler-pack"]
 	path = submodules/colour-sampler-pack
 	url = git://github.com/vim-scripts/Colour-Sampler-Pack.git
+[submodule "submodules/minibufexpl"]
+	path = submodules/minibufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git

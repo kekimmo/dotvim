@@ -157,7 +157,7 @@ cnoreabbrev N NERDTree
 
 " Make VIM CWD follow NerdTree:
 let g:NERDTreeChDirMode = 2 
-" Show hidden files (to allow .vimrc edinting...)
+" Show hidden files (to allow .vimrc editing...)
 let g:NERDTreeShowHidden = 1 
 let g:NERDTreeWinSize = 40 
 let g:NERDTreeDirArrows = 0 
@@ -180,5 +180,30 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 " Fix bug that causes syntax hilighting to disappear
 " This appears to be fixed by :set hidden
 "let g:miniBufExplForceSyntaxEnable = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Type of symbols to use. "Unicode" looks ugly and "fancy" requres special
+" modification, so sticking with this.
+let g:Powerline_symbols = "compatible"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,18 @@
+[submodule "submodules/pathogen"]
+	path = submodules/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "submodules/fugitive"]
+	path = submodules/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "submodules/nerdtree"]
+	path = submodules/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "submodules/powerline"]
+	path = submodules/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "submodules/ultisnips"]
+	path = submodules/ultisnips
+	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "submodules/colour-sampler-pack"]
+	path = submodules/colour-sampler-pack
+	url = git://github.com/vim-scripts/Colour-Sampler-Pack.git

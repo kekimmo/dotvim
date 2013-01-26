@@ -1,18 +1,75 @@
 
 call pathogen#infect()
 
-set smartindent
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File types
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Auto-detection and indentation
 filetype plugin indent on
 
-" 256 colors
-set t_Co=256
+" Run code
+if has("autocmd")
+	au!
+	au FileType python noremap <buffer> <F5> :w<CR> :!python %<CR>
+	au FileType php noremap <buffer> <F5> :!php -q %<CR>
+	au FileType php noremap <buffer> <F6> :!php -l %<CR>
+	au FileType haskell noremap <buffer> <F5> :!runhaskell %<CR>
+	au FileType haskell compiler ghc
+endif
+
+" Sensible tab length
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Look
+" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
-colors zenburn
 
-" Tab completion, dmenu-style
+if &t_Co == 256
+	colorscheme inkpot
+else
+	colorscheme default
+endif
+
+" Line numbering
+set number
+
+" Show position in file 
+set ruler
+
+" Match parentheses
+set showmatch
+
+set laststatus=2
+set showbreak=+
+set colorcolumn=80
+
+" Scroll before edge is reached
+" vERTICAl
+set scrolloff=10
+" Horizontal
+set sidescrolloff=5
+set sidescroll=1
+
+" Set filename as window title
+set title
+
+" Dmenu-style menu for commands
 set wildmenu
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Change leader key
 let mapleader = ','
@@ -23,26 +80,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
+" Yank till end of line
 map Y y$
-
-cmap w!! w !sudo tee % > /dev/null
-
-set noswapfile
-set nobackup
 
 " Improve up/down movement on wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-" Clear search highlights
-noremap <silent> <Leader>/ :nohls<CR>
-
-" Protect your fat fingers from the evils of <F1>
-noremap <F1> <nop>
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
 
 " Use tab for auto completion
 function! SuperTab()
@@ -54,8 +101,33 @@ function! SuperTab()
 endfunction
 imap <s-tab> <C-R>=SuperTab()<CR>
 
-" Ö = :
-noremap Ö :
+" Move stuff around with Alt+jk
+noremap <A-j> :m+<CR>
+noremap <A-k> :m-2<CR>
+inoremap <A-j> <Esc>:m+<CR>
+inoremap <A-k> <Esc>:m-2<CR>
+vnoremap <A-j> :m'>+<CR>gv
+vnoremap <A-k> :m-2<CR>gv
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Handle \ in Windows file names correctly
+set shellslash
+
+" Use sudo when saving with w!!
+cmap w!! w !sudo tee % > /dev/null
+
+" No swap or backup files
+set noswapfile
+set nobackup
+
+" Clear search highlights
+noremap <silent> <Leader>/ :nohls<CR>
 
 " Enable paste toggle and map it to F8
 set pastetoggle=<F8>
@@ -66,54 +138,17 @@ inoremap jj <Esc>
 " Disable paste mode when leaving Insert Mode
 au InsertLeave * set nopaste
 
-" Sensible tab length
-set tabstop=2
-set shiftwidth=2
-
-noremap <A-j> :m+<CR>
-noremap <A-k> :m-2<CR>
-inoremap <A-j> <Esc>:m+<CR>
-inoremap <A-k> <Esc>:m-2<CR>
-vnoremap <A-j> :m'>+<CR>gv
-vnoremap <A-k> :m-2<CR>gv
-
-set ruler
-set showmatch
-
-set laststatus=2
-
-set showbreak=+
-set colorcolumn=80
-
-" Line numbering
-set nu
-
-" Scroll before edge is reached
-" Vertical
-set scrolloff=8
-set sidescrolloff=8
-set sidescroll=1
-
-" Set filename as window title
-set title
-
 " Make /g default in substitute
 set gdefault
 
-" Run code
-if has("autocmd")
-	autocmd FileType python noremap <buffer> <F5> :w<CR> :!python %<CR>
-	autocmd FileType php noremap <buffer> <F5> :!php -q %<CR>
-	autocmd FileType php noremap <buffer> <F6> :!php -l %<CR>
-	autocmd FileType haskell noremap <buffer> <F5> :!runhaskell %<CR>
-endif
-
-au Bufenter *.hs compiler ghc
-
-" let php_folding=2
-
 cnoreabbrev N NERDTree
-:
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Make VIM CWD follow NerdTree:
 let g:NERDTreeChDirMode = 2 
 " Show hidden files (to allow .vimrc edinting...)
@@ -125,11 +160,6 @@ cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h")
 cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
 " Show NERDTree on startup
 autocmd VimEnter * NERDTree
-
-
-
-
-
 
 
 

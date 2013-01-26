@@ -1,7 +1,7 @@
 
 [submodule "submodules/pathogen"]
-		path = submodules/pathogen
-		url = https://github.com/tpope/vim-pathogen.git
+	path = submodules/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "submodules/fugitive"]
 	path = submodules/fugitive
 	url = https://github.com/tpope/vim-fugitive.git

@@ -19,3 +19,6 @@
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "submodules/paren-crosshairs"]
+	path = submodules/paren-crosshairs
+	url = https://github.com/chreekat/vim-paren-crosshairs.git

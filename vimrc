@@ -13,10 +13,9 @@ filetype plugin indent on
 " Run code
 if has("autocmd")
   au!
-  au FileType python noremap <buffer> <F5> :w<CR> :!python %<CR>
-  au FileType php noremap <buffer> <F5> :!php -q %<CR>
-  au FileType php noremap <buffer> <F6> :!php -l %<CR>
-  au FileType haskell noremap <buffer> <F5> :!runhaskell %<CR>
+  au FileType python noremap <buffer> <F5> :w<CR>:!python %<CR>
+  au FileType php noremap <buffer> <F5> :w<CR>:!php -q %<CR>
+  au FileType php noremap <buffer> <F6> :w<CR>:!php -l %<CR>
   au FileType haskell compiler ghc
 endif
 
@@ -24,6 +23,15 @@ endif
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set smarttab
+
+" Indenting
+set smartindent
+
+" Folding
+" Disabled for now since fold lines seem to be unreadable in all color themes
+"set foldmethod=syntax
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -45,8 +53,8 @@ set number
 " Show position in file 
 set ruler
 
-" Match parentheses
-set showmatch
+" Only hilight the matching paren, don't jump to it
+set noshowmatch
 
 set laststatus=2
 set showbreak=+
@@ -101,6 +109,8 @@ function! SuperTab()
 endfunction
 imap <s-tab> <C-R>=SuperTab()<CR>
 
+
+
 " Move stuff around with Alt+jk
 noremap <A-j> :m+<CR>
 noremap <A-k> :m-2<CR>
@@ -109,6 +119,13 @@ inoremap <A-k> <Esc>:m-2<CR>
 vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
+" We've got ÅÄÖ!
+map ö <C-f>
+map ä <C-b>
+map å ^
+imap å ^
+
+" Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
 
 

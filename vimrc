@@ -12,12 +12,12 @@ filetype plugin indent on
 
 " Run code
 if has("autocmd")
-	au!
-	au FileType python noremap <buffer> <F5> :w<CR> :!python %<CR>
-	au FileType php noremap <buffer> <F5> :!php -q %<CR>
-	au FileType php noremap <buffer> <F6> :!php -l %<CR>
-	au FileType haskell noremap <buffer> <F5> :!runhaskell %<CR>
-	au FileType haskell compiler ghc
+  au!
+  au FileType python noremap <buffer> <F5> :w<CR> :!python %<CR>
+  au FileType php noremap <buffer> <F5> :!php -q %<CR>
+  au FileType php noremap <buffer> <F6> :!php -l %<CR>
+  au FileType haskell noremap <buffer> <F5> :!runhaskell %<CR>
+  au FileType haskell compiler ghc
 endif
 
 " Sensible tab length
@@ -34,9 +34,9 @@ set expandtab
 syntax enable
 
 if &t_Co == 256
-	colorscheme inkpot
+  colorscheme inkpot
 else
-	colorscheme default
+  colorscheme default
 endif
 
 " Line numbering
@@ -93,11 +93,11 @@ vnoremap > >gv
 
 " Use tab for auto completion
 function! SuperTab()
-	if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-		return "\<Tab>"
-    else
-        return "\<C-n>"
-	endif
+  if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+    return "\<Tab>"
+  else
+    return "\<C-n>"
+  endif
 endfunction
 imap <s-tab> <C-R>=SuperTab()<CR>
 

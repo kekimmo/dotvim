@@ -182,7 +182,7 @@ let g:NERDTreeDirArrows = 0
 cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
 cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
 " Show NERDTree on startup
-autocmd VimEnter * if !argc() | NERDTree | endif
+"autocmd VimEnter * if !argc() | NERDTree | endif
 
 noremap <S-Tab> :bnext<CR>
 

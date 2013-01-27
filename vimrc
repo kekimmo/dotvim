@@ -60,7 +60,7 @@ set showbreak=+
 set colorcolumn=80
 
 " Scroll before edge is reached
-" vERTICAl
+" Vertical
 set scrolloff=10
 " Horizontal
 set sidescrolloff=5
@@ -78,6 +78,16 @@ set wildmenu
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+noremap 1 :bfirst<CR>
+noremap 2 :bfirst<CR>1:bnext<CR>
+noremap 3 :bfirst<CR>2:bnext<CR>
+noremap 4 :bfirst<CR>3:bnext<CR>
+noremap 5 :bfirst<CR>4:bnext<CR>
+noremap 6 :bfirst<CR>5:bnext<CR>
+noremap 7 :bfirst<CR>6:bnext<CR>
+noremap 8 :bfirst<CR>7:bnext<CR>
+noremap 9 :bfirst<CR>8:bnext<CR>
+
 " Change leader key
 let mapleader = ','
 
@@ -88,7 +98,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Yank till end of line
-map Y y$
+noremap Y y$
 
 " Improve up/down movement on wrapped lines
 nnoremap j gj
@@ -106,9 +116,7 @@ function! SuperTab()
     return "\<C-n>"
   endif
 endfunction
-imap <s-tab> <C-R>=SuperTab()<CR>
-
-
+inoremap <s-tab> <C-R>=SuperTab()<CR>
 
 " Move stuff around with Alt+jk
 noremap <A-j> :m+<CR>
@@ -119,10 +127,10 @@ vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
 " We've got ÅÄÖ!
-map ö <C-f>
-map ä <C-b>
-map å ^
-imap å ^
+noremap ö <C-f>
+noremap ä <C-b>
+noremap å ^
+inoremap å ^
 
 " Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>

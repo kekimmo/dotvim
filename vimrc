@@ -29,8 +29,7 @@ set smarttab
 set smartindent
 
 " Folding
-" Disabled for now since fold lines seem to be unreadable in all color themes
-"set foldmethod=syntax
+set foldmethod=syntax
 
 
 
@@ -44,7 +43,7 @@ syntax enable
 if &t_Co == 256
   colorscheme inkpot
 else
-  colorscheme default
+  colorscheme torte
 endif
 
 " Line numbering

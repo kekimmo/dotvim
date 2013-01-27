@@ -192,18 +192,3 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:Powerline_symbols = "compatible"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,3 +22,6 @@
 [submodule "submodules/paren-crosshairs"]
 	path = submodules/paren-crosshairs
 	url = https://github.com/chreekat/vim-paren-crosshairs.git
+[submodule "submodules/slimv"]
+	path = submodules/slimv
+	url = git://github.com/vim-scripts/slimv.vim.git

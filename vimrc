@@ -216,3 +216,14 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:Powerline_symbols = "compatible"
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Slimv
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:slimv_preferred = 'clisp'
+let g:slimv_swank_cmd = '! urxvt -e sbcl --load /usr/share/common-lisp/source/slime/start-swank.lisp &'
+let g:slimv_repl_split = 4
+
+
+

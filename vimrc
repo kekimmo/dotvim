@@ -19,6 +19,10 @@ if has("autocmd")
   au FileType haskell compiler ghc
 endif
 
+if has("autocmd")
+  au FileType gitcommit foldopen!  
+endif
+
 " Sensible tab length
 set tabstop=2
 set shiftwidth=2
@@ -78,15 +82,20 @@ set wildmenu
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Meta-<number> for buffer navigation
 noremap 1 :bfirst<CR>
-noremap 2 :bfirst<CR>1:bnext<CR>
-noremap 3 :bfirst<CR>2:bnext<CR>
-noremap 4 :bfirst<CR>3:bnext<CR>
-noremap 5 :bfirst<CR>4:bnext<CR>
-noremap 6 :bfirst<CR>5:bnext<CR>
-noremap 7 :bfirst<CR>6:bnext<CR>
-noremap 8 :bfirst<CR>7:bnext<CR>
-noremap 9 :bfirst<CR>8:bnext<CR>
+noremap 2 :bfirst<CR>:bnext 1<CR>
+noremap 3 :bfirst<CR>:bnext 2<CR>
+noremap 4 :bfirst<CR>:bnext 3<CR>
+noremap 5 :bfirst<CR>:bnext 4<CR>
+noremap 6 :bfirst<CR>:bnext 5<CR>
+noremap 7 :bfirst<CR>:bnext 6<CR>
+noremap 8 :bfirst<CR>:bnext 7<CR>
+noremap 9 :bfirst<CR>:bnext 8<CR>
+
+" Prev / Next buffer
+noremap ö :bprev<CR>
+noremap ä :bnext<CR>
 
 " Change leader key
 let mapleader = ','
@@ -225,5 +234,13 @@ let g:slimv_preferred = 'clisp'
 let g:slimv_swank_cmd = '! urxvt -e sbcl --load /usr/share/common-lisp/source/slime/start-swank.lisp &'
 let g:slimv_repl_split = 4
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TwitVim
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let twitvim_enable_perl = 1
+let twitvim_browser_cmd = 'xdg-open'
 
 

@@ -25,3 +25,6 @@
 [submodule "submodules/slimv"]
 	path = submodules/slimv
 	url = git://github.com/vim-scripts/slimv.vim.git
+[submodule "submodules/twitvim"]
+	path = submodules/twitvim
+	url = git://github.com/vim-scripts/TwitVim.git

@@ -28,3 +28,6 @@
 [submodule "submodules/twitvim"]
 	path = submodules/twitvim
 	url = git://github.com/vim-scripts/TwitVim.git
+[submodule "submodules/vim-surround"]
+	path = submodules/vim-surround
+	url = git://github.com/tpope/vim-surround.git

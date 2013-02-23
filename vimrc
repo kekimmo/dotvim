@@ -19,10 +19,6 @@ if has("autocmd")
   au FileType haskell compiler ghc
 endif
 
-if has("autocmd")
-  au FileType gitcommit foldopen!  
-endif
-
 " Sensible tab length
 set tabstop=2
 set shiftwidth=2

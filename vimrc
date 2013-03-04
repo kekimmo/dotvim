@@ -80,6 +80,7 @@ set wildmenu
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Meta-<number> for buffer navigation
 noremap 1 :bfirst<CR>
 noremap 2 :bfirst<CR>:bnext 1<CR>
 noremap 3 :bfirst<CR>:bnext 2<CR>
@@ -89,6 +90,10 @@ noremap 6 :bfirst<CR>:bnext 5<CR>
 noremap 7 :bfirst<CR>:bnext 6<CR>
 noremap 8 :bfirst<CR>:bnext 7<CR>
 noremap 9 :bfirst<CR>:bnext 8<CR>
+
+" Prev / Next buffer
+noremap ö :bprev<CR>
+noremap ä :bnext<CR>
 
 " Change leader key
 let mapleader = ','
@@ -228,9 +233,12 @@ let g:slimv_swank_cmd = '! urxvt -e sbcl --load /usr/share/common-lisp/source/sl
 let g:slimv_repl_split = 4
 
 
-" Xiki
-"let $XIKI_DIR = "/usr/lib/ruby/gems/1.9.1/gems/xiki-0.6.3"
-"source /usr/lib/ruby/gems/1.9.1/gems/xiki-0.6.3/etc/vim/xiki.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TwitVim
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let twitvim_enable_perl = 1
+let twitvim_browser_cmd = 'xdg-open'
 
 

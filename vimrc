@@ -30,7 +30,9 @@ set smartindent
 
 " Folding
 set foldmethod=syntax
-
+set foldlevel=1
+" Toggle folding
+nnoremap <Space> za
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

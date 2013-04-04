@@ -11,12 +11,12 @@ call pathogen#infect()
 filetype plugin indent on
 
 " Run code
-if has("autocmd")
+augroup run
   au!
   au FileType python noremap <buffer> <F5> :write<CR>:!python %<CR>
   au FileType php noremap <buffer> <F5> :write<CR>:!php -q %<CR>
   au FileType php noremap <buffer> <F6> :write<CR>:!php -l %<CR>
-endif
+augroup END
 
 " Sensible tab length
 set tabstop=2
@@ -263,4 +263,5 @@ let twitvim_browser_cmd = 'xdg-open'
 
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gp :Git push<CR>
+noremap <Leader>gw :Gwrite<CR>
 

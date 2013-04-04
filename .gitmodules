@@ -34,3 +34,6 @@
 [submodule "submodules/vim-commentary"]
 	path = submodules/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "submodules/vim-eunuch"]
+	path = submodules/vim-eunuch
+	url = git://github.com/tpope/vim-eunuch.git

@@ -148,6 +148,9 @@ noremap <C-n> :NERDTreeToggle<CR>
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use mouse in text mode
+set mouse=a
+
 " Enable hidden buffers
 set hidden
 

@@ -13,10 +13,9 @@ filetype plugin indent on
 " Run code
 if has("autocmd")
   au!
-  au FileType python noremap <buffer> <F5> :w<CR>:!python %<CR>
-  au FileType php noremap <buffer> <F5> :w<CR>:!php -q %<CR>
-  au FileType php noremap <buffer> <F6> :w<CR>:!php -l %<CR>
-  au FileType haskell compiler ghc
+  au FileType python noremap <buffer> <F5> :write<CR>:!python %<CR>
+  au FileType php noremap <buffer> <F5> :write<CR>:!php -q %<CR>
+  au FileType php noremap <buffer> <F6> :write<CR>:!php -l %<CR>
 endif
 
 " Sensible tab length
@@ -31,6 +30,7 @@ set smartindent
 " Folding
 set foldmethod=syntax
 set foldlevel=1
+
 " Toggle folding
 nnoremap <Space> za
 
@@ -91,6 +91,10 @@ noremap 7 :bfirst<CR>:bnext 6<CR>
 noremap 8 :bfirst<CR>:bnext 7<CR>
 noremap 9 :bfirst<CR>:bnext 8<CR>
 
+" Edit vimrc
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+
 " Prev / Next buffer
 noremap ö :bprev<CR>
 noremap ä :bnext<CR>
@@ -115,6 +119,17 @@ nnoremap k gk
 vnoremap < <gv
 vnoremap > >gv
 
+" A more handy Esc
+inoremap jj <Esc>
+inoremap jk <Esc>
+inoremap <Esc> <Nop>
+
+" Better use for HJKL
+noremap J <PageDown>
+noremap K <PageUp>
+noremap H <Home>
+noremap L <End>
+
 " Use tab for auto completion
 function! SuperTab()
   if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
@@ -134,10 +149,8 @@ vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
 " We've got ÅÄÖ!
-noremap ö <C-f>
-noremap ä <C-b>
-noremap å ^
-inoremap å ^
+nnoremap ä :write<CR>
+inoremap å <Esc>
 
 " Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
@@ -171,9 +184,6 @@ noremap <silent> <Leader>/ :nohls<CR>
 
 " Enable paste toggle and map it to F8
 set pastetoggle=<F8>
-
-" A more handy Esc
-inoremap jj <Esc>
 
 " Disable paste mode when leaving Insert Mode
 au InsertLeave * set nopaste

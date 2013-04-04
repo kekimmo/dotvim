@@ -262,4 +262,5 @@ let twitvim_browser_cmd = 'xdg-open'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gp :Git push<CR>
 

@@ -81,23 +81,25 @@ set wildmenu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Meta-<number> for buffer navigation
-noremap 1 :bfirst<CR>
-noremap 2 :bfirst<CR>:bnext 1<CR>
-noremap 3 :bfirst<CR>:bnext 2<CR>
-noremap 4 :bfirst<CR>:bnext 3<CR>
-noremap 5 :bfirst<CR>:bnext 4<CR>
-noremap 6 :bfirst<CR>:bnext 5<CR>
-noremap 7 :bfirst<CR>:bnext 6<CR>
-noremap 8 :bfirst<CR>:bnext 7<CR>
-noremap 9 :bfirst<CR>:bnext 8<CR>
+nnoremap 1 :bfirst<CR>
+nnoremap 2 :bfirst<CR>:bnext 1<CR>
+nnoremap 3 :bfirst<CR>:bnext 2<CR>
+nnoremap 4 :bfirst<CR>:bnext 3<CR>
+nnoremap 5 :bfirst<CR>:bnext 4<CR>
+nnoremap 6 :bfirst<CR>:bnext 5<CR>
+nnoremap 7 :bfirst<CR>:bnext 6<CR>
+nnoremap 8 :bfirst<CR>:bnext 7<CR>
+nnoremap 9 :bfirst<CR>:bnext 8<CR>
+
+nnoremap <S-Tab> :bnext<CR>
 
 " Edit vimrc
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Prev / Next buffer
-noremap ö :bprev<CR>
-noremap ä :bnext<CR>
+nnoremap ö :bprev<CR>
+nnoremap ä :bnext<CR>
 
 " Change leader key
 let mapleader = ','
@@ -109,7 +111,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Yank till end of line
-noremap Y y$
+nnoremap Y y$
 
 " Improve up/down movement on wrapped lines
 nnoremap j gj
@@ -123,12 +125,6 @@ vnoremap > >gv
 inoremap jj <Esc>
 inoremap jk <Esc>
 inoremap <Esc> <Nop>
-
-" Better use for HJKL
-noremap J <PageDown>
-noremap K <PageUp>
-noremap H <Home>
-noremap L <End>
 
 " Use tab for auto completion
 function! SuperTab()
@@ -149,11 +145,32 @@ vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
 " We've got ÅÄÖ!
-nnoremap ä :write<CR>
-inoremap å <Esc>
+nnoremap ö :write<CR>
+nnoremap ä :wq<CR>
+nnoremap å :SudoWrite<CR>
+
+" Move in jumplist
+nnoremap <C-j> <C-o>
+nnoremap <C-k> <C-i>
 
 " Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Movements
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Better use for HJKL
+noremap J <PageDown>
+noremap K <PageUp>
+noremap H <Home>
+noremap L <End>
+
+" Handy operators
+onoremap p i(
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,8 +228,6 @@ cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h")
 " Show NERDTree on startup
 "autocmd VimEnter * if !argc() | NERDTree | endif
 
-noremap <S-Tab> :bnext<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mini Buffer Explorer 
@@ -261,7 +276,8 @@ let twitvim_browser_cmd = 'xdg-open'
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gp :Git push<CR>
-noremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit -m "
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gw :Gwrite<CR>
 

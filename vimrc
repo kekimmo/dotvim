@@ -80,6 +80,9 @@ set wildmenu
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Change leader key (NOTE: must appear before <Leader> is used)
+let mapleader = ','
+
 " Meta-<number> for buffer navigation
 nnoremap 1 :bfirst<CR>
 nnoremap 2 :bfirst<CR>:bnext 1<CR>
@@ -101,14 +104,13 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap ö :bprev<CR>
 nnoremap ä :bnext<CR>
 
-" Change leader key
-let mapleader = ','
-
 " Window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap q :close<CR> 
 
 " Yank till end of line
 nnoremap Y y$
@@ -124,7 +126,6 @@ vnoremap > >gv
 " A more handy Esc
 inoremap jj <Esc>
 inoremap jk <Esc>
-inoremap <Esc> <Nop>
 
 " Use tab for auto completion
 function! SuperTab()
@@ -148,10 +149,16 @@ vnoremap <A-k> :m-2<CR>gv
 nnoremap ö :write<CR>
 nnoremap ä :wq<CR>
 nnoremap å :SudoWrite<CR>
+nnoremap Ö <C-[>
+nnoremap Ä <C-]>
 
 " Move in jumplist
-nnoremap <C-j> <C-o>
-nnoremap <C-k> <C-i>
+" Conflicts with window navigation
+"nnoremap <C-j> <C-o>
+"nnoremap <C-k> <C-i>
+
+" Digraphs (C-k used by Ultisnips)
+inoremap <C-d> <C-k>
 
 " Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>

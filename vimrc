@@ -127,16 +127,6 @@ vnoremap > >gv
 inoremap jj <Esc>
 inoremap jk <Esc>
 
-" Use tab for auto completion
-function! SuperTab()
-  if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-    return "\<Tab>"
-  else
-    return "\<C-n>"
-  endif
-endfunction
-inoremap <s-tab> <C-R>=SuperTab()<CR>
-
 " Move stuff around with Alt+jk
 noremap <A-j> :m+<CR>
 noremap <A-k> :m-2<CR>

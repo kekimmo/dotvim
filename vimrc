@@ -278,3 +278,7 @@ nnoremap <Leader>gc :Gcommit -m "
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
+"Added by android-vim:
+set tags+=/home/kekimmo/.vim/tags
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+let g:SuperTabDefaultCompletionType = 'context'

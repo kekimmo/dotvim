@@ -1,8 +1,24 @@
 " Vimball Archiver by Charles E. Campbell, Jr., Ph.D.
 UseVimball
 finish
+doc/java.txt	[[[1
+14
+Description:
+When a java file is detected, try and find an AndroidManifest.xml file. If the
+file is not found in the current directory, it will search in the directory
+above until it hits the root directory. If the file is found, read the
+project.properties file to find the target version of android. The class path
+is set to the target version of the Android SDK.
+
+1. Requirements:
+	1. Vim 7.0+
+	2. Python
+	3. Vim with python bindings
+
+2. Install:
+	vim /path/to/java.vim -c "so %" -c "q!"
 after/ftplugin/java.vim	[[[1
-46
+48
 function! FindManifestFile()
 python << endpython
 
@@ -20,7 +36,7 @@ def find_manifest(path):
 	return found
 
 found = False
-pwd = os.getcwd()
+old_dir = pwd = os.getcwd()
 
 found = find_manifest(pwd)
 
@@ -45,6 +61,8 @@ if found:
 	target = vim.eval("s:targetAndroidJar")
 	cmd = "let $CLASSPATH = '" + target + "'"
 	vim.command(cmd)
+
+os.chdir(old_dir)
 endpython
 endfunction
 

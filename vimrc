@@ -50,6 +50,7 @@ augroup END
 
 if &t_Co == 256
   colorscheme inkpot
+  highlight ColorColumn ctermbg=233
 else
   colorscheme torte
 endif

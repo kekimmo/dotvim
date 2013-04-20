@@ -117,7 +117,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap q :close<CR>
+nnoremap q :quit<CR>
+nnoremap Q :bdelete<CR>
 
 " Yank till end of line
 nnoremap Y y$

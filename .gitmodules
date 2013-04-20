@@ -43,3 +43,6 @@
 [submodule "submodules/python-mode"]
 	path = submodules/python-mode
 	url = git://github.com/klen/python-mode.git
+[submodule "submodules/supertab"]
+	path = submodules/supertab
+	url = git://github.com/ervandew/supertab.git

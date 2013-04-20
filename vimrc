@@ -313,5 +313,6 @@ let g:SuperTabDefaultCompletionType = 'context'
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-u> :GundoToggle<CR>
+let g:gundo_right = 1
 
 

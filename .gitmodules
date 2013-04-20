@@ -46,3 +46,6 @@
 [submodule "submodules/supertab"]
 	path = submodules/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "submodules/gundo.vim"]
+	path = submodules/gundo.vim
+	url = http://github.com/sjl/gundo.vim.git

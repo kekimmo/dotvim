@@ -8,6 +8,9 @@ call pathogen#helptags()
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Remove all autocommands
+au!
+
 " Auto-detection and indentation
 filetype plugin indent on
 
@@ -45,6 +48,7 @@ syntax enable
 
 " Always hilight extra whitespace (as in here) 
 augroup extrawhitespace
+  au!
   au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
   au InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END

@@ -37,10 +37,16 @@ nnoremap <Space> za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Look
-" 
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
+
+" Always hilight extra whitespace (as in here) 
+augroup extrawhitespace
+  au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+  au InsertLeave * match ExtraWhitespace /\s\+$/
+augroup END
 
 if &t_Co == 256
   colorscheme inkpot
@@ -51,7 +57,7 @@ endif
 " Line numbering
 set number
 
-" Show position in file 
+" Show position in file
 set ruler
 
 " Only hilight the matching paren, don't jump to it
@@ -73,6 +79,7 @@ set title
 
 " Dmenu-style menu for commands
 set wildmenu
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,7 +117,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap q :close<CR> 
+nnoremap q :close<CR>
 
 " Yank till end of line
 nnoremap Y y$
@@ -214,20 +221,20 @@ set gdefault
 cnoreabbrev N NERDTree
 
 " Make VIM CWD follow NerdTree:
-let g:NERDTreeChDirMode = 2 
+let g:NERDTreeChDirMode = 2
 " Show hidden files (to allow .vimrc editing...)
-let g:NERDTreeShowHidden = 1 
-let g:NERDTreeWinSize = 40 
-let g:NERDTreeDirArrows = 0 
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 40
+let g:NERDTreeDirArrows = 0
 " Replace NetRW commands
-cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
-cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
+cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h")
+cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h")
 " Show NERDTree on startup
 "autocmd VimEnter * if !argc() | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mini Buffer Explorer 
+" Mini Buffer Explorer
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

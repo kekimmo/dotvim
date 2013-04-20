@@ -40,3 +40,6 @@
 [submodule "submodules/vim-android"]
 	path = submodules/vim-android
 	url = git://github.com/bpowell/vim-android.git
+[submodule "submodules/python-mode"]
+	path = submodules/python-mode
+	url = git://github.com/klen/python-mode.git

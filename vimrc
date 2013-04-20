@@ -1,11 +1,15 @@
 
 call pathogen#infect()
+call pathogen#helptags()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Remove all autocommands
+au!
 
 " Auto-detection and indentation
 filetype plugin indent on
@@ -37,13 +41,21 @@ nnoremap <Space> za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Look
-" 
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
 
+" Always hilight extra whitespace (as in here) 
+augroup extrawhitespace
+  au!
+  au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+  au InsertLeave * match ExtraWhitespace /\s\+$/
+augroup END
+
 if &t_Co == 256
   colorscheme inkpot
+  highlight ColorColumn ctermbg=233
 else
   colorscheme torte
 endif
@@ -51,7 +63,7 @@ endif
 " Line numbering
 set number
 
-" Show position in file 
+" Show position in file
 set ruler
 
 " Only hilight the matching paren, don't jump to it
@@ -75,6 +87,7 @@ set title
 set wildmenu
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
 "
@@ -83,26 +96,31 @@ set wildmenu
 " Change leader key (NOTE: must appear before <Leader> is used)
 let mapleader = ','
 
-" Meta-<number> for buffer navigation
-nnoremap 1 :bfirst<CR>
-nnoremap 2 :bfirst<CR>:bnext 1<CR>
-nnoremap 3 :bfirst<CR>:bnext 2<CR>
-nnoremap 4 :bfirst<CR>:bnext 3<CR>
-nnoremap 5 :bfirst<CR>:bnext 4<CR>
-nnoremap 6 :bfirst<CR>:bnext 5<CR>
-nnoremap 7 :bfirst<CR>:bnext 6<CR>
-nnoremap 8 :bfirst<CR>:bnext 7<CR>
-nnoremap 9 :bfirst<CR>:bnext 8<CR>
+" Meta-<number> for tab navigation
+nnoremap 1 :tabn 1<CR>
+nnoremap 2 :tabn 2<CR>
+nnoremap 3 :tabn 3<CR>
+nnoremap 4 :tabn 4<CR>
+nnoremap 5 :tabn 5<CR>
+nnoremap 6 :tabn 6<CR>
+nnoremap 7 :tabn 7<CR>
+nnoremap 8 :tabn 8<CR>
+nnoremap 9 :tabn 9<CR>
 
-nnoremap <S-Tab> :bnext<CR>
+nnoremap <S-Tab> :tabnext<CR>
 
 " Edit vimrc
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <Leader>sv :source $MYVIMRC<CR>
+" Note: If ~/.vimrc symlinks to ~/.vim/vimrc, $MYVIMRC will refer to ~/.vimrc.
+" However, Fugitive will only understand that the file is under version
+" control if it's opened as ~/.vim/vimrc. Use readlink to find the real path.
+" Also, the command output has a newline that needs to be removed.
+let s:vimrc_actual = substitute(system('readlink -f $MYVIMRC'), '\n$', '', '')
+silent execute 'nnoremap <Leader>ev :e ' . s:vimrc_actual . '<CR>'
+silent execute 'nnoremap <Leader>sv :source ' . s:vimrc_actual . '<CR>'
 
-" Prev / Next buffer
-nnoremap ö :bprev<CR>
-nnoremap ä :bnext<CR>
+" Prev / Next tab
+nnoremap ö :tabprev<CR>
+nnoremap ä :tabnext<CR>
 
 " Window navigation
 nnoremap <C-h> <C-w>h
@@ -110,7 +128,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap q :close<CR> 
+nnoremap q :quit<CR>
 
 " Yank till end of line
 nnoremap Y y$
@@ -126,16 +144,6 @@ vnoremap > >gv
 " A more handy Esc
 inoremap jj <Esc>
 inoremap jk <Esc>
-
-" Use tab for auto completion
-function! SuperTab()
-  if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-    return "\<Tab>"
-  else
-    return "\<C-n>"
-  endif
-endfunction
-inoremap <s-tab> <C-R>=SuperTab()<CR>
 
 " Move stuff around with Alt+jk
 noremap <A-j> :m+<CR>
@@ -170,8 +178,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Better use for HJKL
-noremap J <PageDown>
-noremap K <PageUp>
+noremap J <C-d>
+noremap K <C-u>
 noremap H <Home>
 noremap L <End>
 
@@ -191,7 +199,7 @@ set mouse=a
 " Enable hidden buffers
 set hidden
 
-set switchbuf=useopen
+set switchbuf=usetab
 
 " Handle \ in Windows file names correctly
 set shellslash
@@ -224,24 +232,24 @@ set gdefault
 cnoreabbrev N NERDTree
 
 " Make VIM CWD follow NerdTree:
-let g:NERDTreeChDirMode = 2 
+let g:NERDTreeChDirMode = 2
 " Show hidden files (to allow .vimrc editing...)
-let g:NERDTreeShowHidden = 1 
-let g:NERDTreeWinSize = 40 
-let g:NERDTreeDirArrows = 0 
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 40
+let g:NERDTreeDirArrows = 0
 " Replace NetRW commands
-cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
-cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
+cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h")
+cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h")
 " Show NERDTree on startup
 "autocmd VimEnter * if !argc() | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mini Buffer Explorer 
+" Mini Buffer Explorer
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Fix bug that causes syntax hilighting to disappear
 " This appears to be fixed by :set hidden
@@ -287,4 +295,24 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit -m "
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gw :Gwrite<CR>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" android-vim
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Added by android-vim:
+set tags+=/home/kekimmo/.vim/tags
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+let g:SuperTabDefaultCompletionType = 'context'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gundo
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-u> :GundoToggle<CR>
+let g:gundo_right = 1
+
 

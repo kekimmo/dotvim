@@ -104,8 +104,13 @@ nnoremap 9 :tabn 9<CR>
 nnoremap <S-Tab> :tabnext<CR>
 
 " Edit vimrc
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <Leader>sv :source $MYVIMRC<CR>
+" Note: If ~/.vimrc symlinks to ~/.vim/vimrc, $MYVIMRC will refer to ~/.vimrc.
+" However, Fugitive will only understand that the file is under version
+" control if it's opened as ~/.vim/vimrc. Use readlink to find the real path.
+" Also, the command output has a newline that needs to be removed.
+let s:vimrc_actual = substitute(system('readlink -f $MYVIMRC'), '\n$', '', '')
+silent execute 'nnoremap <Leader>ev :e ' . s:vimrc_actual . '<CR>'
+silent execute 'nnoremap <Leader>sv :source ' . s:vimrc_actual . '<CR>'
 
 " Prev / Next tab
 nnoremap ö :tabprev<CR>
@@ -188,7 +193,7 @@ set mouse=a
 " Enable hidden buffers
 set hidden
 
-set switchbuf=useopen
+set switchbuf=usetab
 
 " Handle \ in Windows file names correctly
 set shellslash

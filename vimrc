@@ -90,26 +90,26 @@ set wildmenu
 " Change leader key (NOTE: must appear before <Leader> is used)
 let mapleader = ','
 
-" Meta-<number> for buffer navigation
-nnoremap 1 :bfirst<CR>
-nnoremap 2 :bfirst<CR>:bnext 1<CR>
-nnoremap 3 :bfirst<CR>:bnext 2<CR>
-nnoremap 4 :bfirst<CR>:bnext 3<CR>
-nnoremap 5 :bfirst<CR>:bnext 4<CR>
-nnoremap 6 :bfirst<CR>:bnext 5<CR>
-nnoremap 7 :bfirst<CR>:bnext 6<CR>
-nnoremap 8 :bfirst<CR>:bnext 7<CR>
-nnoremap 9 :bfirst<CR>:bnext 8<CR>
+" Meta-<number> for tab navigation
+nnoremap 1 :tabn 1<CR>
+nnoremap 2 :tabn 2<CR>
+nnoremap 3 :tabn 3<CR>
+nnoremap 4 :tabn 4<CR>
+nnoremap 5 :tabn 5<CR>
+nnoremap 6 :tabn 6<CR>
+nnoremap 7 :tabn 7<CR>
+nnoremap 8 :tabn 8<CR>
+nnoremap 9 :tabn 9<CR>
 
-nnoremap <S-Tab> :bnext<CR>
+nnoremap <S-Tab> :tabnext<CR>
 
 " Edit vimrc
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
-" Prev / Next buffer
-nnoremap ö :bprev<CR>
-nnoremap ä :bnext<CR>
+" Prev / Next tab
+nnoremap ö :tabprev<CR>
+nnoremap ä :tabnext<CR>
 
 " Window navigation
 nnoremap <C-h> <C-w>h
@@ -118,7 +118,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap q :quit<CR>
-nnoremap Q :bdelete<CR>
 
 " Yank till end of line
 nnoremap Y y$
@@ -239,7 +238,7 @@ cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h")
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Fix bug that causes syntax hilighting to disappear
 " This appears to be fixed by :set hidden

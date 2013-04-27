@@ -47,11 +47,11 @@ nnoremap <Space> za
 syntax enable
 
 " Always hilight extra whitespace (as in here) 
-augroup extrawhitespace
-  au!
-  au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-  au InsertLeave * match ExtraWhitespace /\s\+$/
-augroup END
+" augroup extrawhitespace
+"   au!
+"   au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"   au InsertLeave * match ExtraWhitespace /\s\+$/
+" augroup END
 
 if &t_Co == 256
   colorscheme inkpot

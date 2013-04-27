@@ -52,3 +52,6 @@
 [submodule "submodules/gundo.vim"]
 	path = submodules/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "bundle/vundle"]
+	path = bundle/vundle
+	url = https://github.com/gmarik/vundle.git

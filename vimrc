@@ -76,7 +76,7 @@ syntax enable
 " augroup extrawhitespace
 "   au!
 "   au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"   au InsertLeave * match ExtraWhitespace /\s\+$/
+"   au BufReadPost,InsertLeave * match ExtraWhitespace /\s\+$/
 " augroup END
 
 if &t_Co == 256

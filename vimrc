@@ -13,13 +13,16 @@ Bundle 'gmarik/vundle'
 
 " GitHub
 Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/gundo.vim'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'Valloric/YouCompleteMe'
 
 " GitHub vim-scripts/
 Bundle 'Colour-Sampler-Pack'
@@ -27,6 +30,17 @@ Bundle 'TwitVim'
 
 " Non-GitHub
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Paths
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:system_nonl (command)
+  return substitute(system(a:command), '\n$', '', '')
+endfunction
+
+let s:vimrc_actual = s:system_nonl('readlink -f $MYVIMRC')
+let s:dotvim_dir = s:system_nonl('dirname ' . s:vimrc_actual)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,6 +64,7 @@ augroup run
 augroup END
 
 " Sensible tab length
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -141,13 +156,9 @@ nnoremap <S-Tab> :tabnext<CR>
 " However, Fugitive will only understand that the file is under version
 " control if it's opened as ~/.vim/vimrc. Use readlink to find the real path.
 " Also, the command output has a newline that needs to be removed.
-let s:vimrc_actual = substitute(system('readlink -f $MYVIMRC'), '\n$', '', '')
+
 silent execute 'nnoremap <Leader>ev :e ' . s:vimrc_actual . '<CR>'
 silent execute 'nnoremap <Leader>sv :source ' . s:vimrc_actual . '<CR>'
-
-" Prev / Next tab
-nnoremap ö :tabprev<CR>
-nnoremap ä :tabnext<CR>
 
 " Window navigation
 nnoremap <C-h> <C-w>h
@@ -181,11 +192,11 @@ vnoremap <A-j> :m'>+<CR>gv
 vnoremap <A-k> :m-2<CR>gv
 
 " We've got ÅÄÖ!
-nnoremap ö :write<CR>
-nnoremap ä :wq<CR>
-nnoremap å :SudoWrite<CR>
-nnoremap Ö <C-[>
-nnoremap Ä <C-]>
+nnoremap Ö :write<CR>
+nnoremap Ä :wq<CR>
+nnoremap Å :SudoWrite<CR>
+map ö [
+map ä ]
 
 " Move in jumplist
 " Conflicts with window navigation

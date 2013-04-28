@@ -60,7 +60,7 @@ augroup run
   au FileType python noremap <buffer> <F5> :write <Bar> !python %<CR>
   au FileType php noremap <buffer> <F5> :write <Bar> !php -q %<CR>
   au FileType php noremap <buffer> <F6> :write <Bar> !php -l %<CR>
-  au FileType c noremap <buffer> <F5> :w <Bar> make
+  au FileType c noremap <buffer> <F5> :w <Bar> make<CR>
 augroup END
 
 " Sensible tab length

@@ -43,9 +43,10 @@ filetype plugin indent on
 " Run code
 augroup run
   au!
-  au FileType python noremap <buffer> <F5> :write<CR>:!python %<CR>
-  au FileType php noremap <buffer> <F5> :write<CR>:!php -q %<CR>
-  au FileType php noremap <buffer> <F6> :write<CR>:!php -l %<CR>
+  au FileType python noremap <buffer> <F5> :write <Bar> !python %<CR>
+  au FileType php noremap <buffer> <F5> :write <Bar> !php -q %<CR>
+  au FileType php noremap <buffer> <F6> :write <Bar> !php -l %<CR>
+  au FileType c noremap <buffer> <F5> :w <Bar> make
 augroup END
 
 " Sensible tab length

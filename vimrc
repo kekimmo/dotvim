@@ -157,7 +157,7 @@ nnoremap <S-Tab> :tabnext<CR>
 " control if it's opened as ~/.vim/vimrc. Use readlink to find the real path.
 " Also, the command output has a newline that needs to be removed.
 
-silent execute 'nnoremap <Leader>ev :e ' . s:vimrc_actual . '<CR>'
+silent execute 'noremap <Leader>ev :tab drop ' . s:vimrc_actual . '<CR>'
 silent execute 'nnoremap <Leader>sv :source ' . s:vimrc_actual . '<CR>'
 
 " Window navigation

@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " GitHub
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'mhinz/vim-startify'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
@@ -353,4 +354,15 @@ let g:SuperTabDefaultCompletionType = 'context'
 nnoremap <C-u> :GundoToggle<CR>
 let g:gundo_right = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Startify
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:startify_skiplist = [ $VIMRUNTIME . '/doc',
+                          \ s:dotvim_dir . '/bundle/.*/doc',
+                          \ 'COMMIT_EDITMSG',
+                          \ '.git/refs',
+                          \ '.git/index',
+                          \ ]
 

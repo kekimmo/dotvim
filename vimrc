@@ -29,6 +29,7 @@ Bundle 'vhdirk/vim-cmake'
 " GitHub vim-scripts/
 Bundle 'Colour-Sampler-Pack'
 Bundle 'TwitVim'
+Bundle 'UltiSnips'
 
 " Non-GitHub
 

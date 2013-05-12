@@ -24,6 +24,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'vhdirk/vim-cmake'
 
 " GitHub vim-scripts/
 Bundle 'Colour-Sampler-Pack'

@@ -56,13 +56,13 @@ au!
 " Auto-detection and indentation
 filetype plugin indent on
 
-" Run code
+" Compile / Run
 augroup run
   au!
-  au FileType python noremap <buffer> <F5> :write <Bar> !python %<CR>
-  au FileType php noremap <buffer> <F5> :write <Bar> !php -q %<CR>
-  au FileType php noremap <buffer> <F6> :write <Bar> !php -l %<CR>
-  au FileType c noremap <buffer> <F5> :w <Bar> make<CR>
+  au FileType python nnoremap <buffer> <F5> :write <Bar> !python %<CR>
+  au FileType php nnoremap <buffer> <F5> :write <Bar> !php -q %<CR>
+  au FileType php nnoremap <buffer> <F6> :write <Bar> !php -l %<CR>
+  au FileType c,cpp nnoremap <buffer> <F5> :write <Bar> make<CR>
 augroup END
 
 " Sensible tab length

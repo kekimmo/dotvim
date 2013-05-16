@@ -160,7 +160,7 @@ nnoremap y :tabn 15<CR>
 nnoremap u :tabn 16<CR>
 nnoremap i :tabn 17<CR>
 nnoremap o :tabn 18<CR>
-nnoremap p :tabn 19<CR>
+nnoremap p :tabn 10<CR>
 
 nnoremap <Tab> :tabnext<CR>
 nnoremap <S-Tab> :tabprev<CR>
@@ -378,4 +378,11 @@ let g:startify_skiplist = [ $VIMRUNTIME . '/doc',
                           \ '.git/refs',
                           \ '.git/index',
                           \ ]
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_key_list_select_completion = []
 

@@ -141,7 +141,7 @@ set wildmenu
 " Change leader key (NOTE: must appear before <Leader> is used)
 let mapleader = ','
 
-" Meta-<number> for tab navigation
+" Meta-<number/letter> for tab navigation
 nnoremap 1 :tabn 1<CR>
 nnoremap 2 :tabn 2<CR>
 nnoremap 3 :tabn 3<CR>
@@ -151,8 +151,19 @@ nnoremap 6 :tabn 6<CR>
 nnoremap 7 :tabn 7<CR>
 nnoremap 8 :tabn 8<CR>
 nnoremap 9 :tabn 9<CR>
+nnoremap q :tabn 10<CR>
+nnoremap w :tabn 11<CR>
+nnoremap e :tabn 12<CR>
+nnoremap r :tabn 13<CR>
+nnoremap t :tabn 14<CR>
+nnoremap y :tabn 15<CR>
+nnoremap u :tabn 16<CR>
+nnoremap i :tabn 17<CR>
+nnoremap o :tabn 18<CR>
+nnoremap p :tabn 19<CR>
 
-nnoremap <S-Tab> :tabnext<CR>
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprev<CR>
 
 " Edit vimrc
 " Note: If ~/.vimrc symlinks to ~/.vim/vimrc, $MYVIMRC will refer to ~/.vimrc.

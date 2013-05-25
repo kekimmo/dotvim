@@ -64,6 +64,7 @@ augroup run
   au FileType php nnoremap <buffer> <F5> :write <Bar> !php -q %<CR>
   au FileType php nnoremap <buffer> <F6> :write <Bar> !php -l %<CR>
   au FileType c,cpp nnoremap <buffer> <F5> :write <Bar> make<CR>
+  au FileType haskell nnoremap <buffer> <F5> :write <Bar> !runhaskell %<CR>
 augroup END
 
 " Sensible tab length

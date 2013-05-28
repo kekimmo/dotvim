@@ -12,6 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " GitHub
+Bundle 'ConradIrwin/vim-bracketed-paste'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'mhinz/vim-startify'

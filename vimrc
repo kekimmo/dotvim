@@ -12,7 +12,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " GitHub
+Bundle 'bitc/vim-hdevtools'
 Bundle 'ConradIrwin/vim-bracketed-paste'
+Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'mhinz/vim-startify'
@@ -225,6 +227,10 @@ inoremap <C-d> <C-k>
 " Toggle NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
 
+" Move in location list (used by Syntastic)
+nnoremap j :lnext<CR>
+nnoremap k :lprev<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Movements
@@ -387,4 +393,19 @@ let g:startify_skiplist = [ $VIMRUNTIME . '/doc',
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_key_list_select_completion = []
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-hdevtools
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_always_populate_loc_list=1
 

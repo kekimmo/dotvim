@@ -232,6 +232,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 nnoremap j :lnext<CR>
 nnoremap k :lprev<CR>
 
+nnoremap <Leader>er :Errors<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Movements

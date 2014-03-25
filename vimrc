@@ -21,6 +21,8 @@ Bundle 'mhinz/vim-startify'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'tikhomirov/vim-glsl'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
@@ -212,7 +214,7 @@ vnoremap <A-k> :m-2<CR>gv
 " We've got ÅÄÖ!
 nnoremap Ö :write<CR>
 nnoremap Ä :wq<CR>
-nnoremap Å :SudoWrite<CR>
+nnoremap Å :SudoWrite<CR>:e<CR>
 map ö [
 map ä ]
 
@@ -407,5 +409,10 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 " Syntastic
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = 'S✗'
+let g:syntastic_style_warning_symbol = 'S⚠'
 

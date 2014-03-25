@@ -187,6 +187,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap q :quit<CR>
+nnoremap Q q
 
 " Yank till end of line
 nnoremap Y y$
@@ -232,6 +233,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 " Move in location list (used by Syntastic)
 nnoremap j :lnext<CR>
 nnoremap k :lprev<CR>
+
+nnoremap <Leader>er :Errors<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -411,8 +414,11 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
+
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = 'S✗'
 let g:syntastic_style_warning_symbol = 'S⚠'
+
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
